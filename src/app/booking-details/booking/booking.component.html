@@ -1,0 +1,59 @@
+<div class="container my-5">
+  <form class="row g-3" #bookingForm="ngForm" autocomplete="off" (submit)="bookRoom(bookingForm.value)">
+    <div class="col-md-6">
+      <label for="firstName" class="form-label">First Name</label>
+      <input type="text" pattern="^[A-Za-z][A-Za-z0-9_]{2,255}$" class="form-control" #CustomerFirstName="ngModel" id="firstName" placeholder="First Name" name="CustomerFirstName" ngModel required>
+      <span *ngIf="CustomerFirstName.invalid && CustomerFirstName.touched" style="color: red;" >* Enter valid name</span>
+    </div>
+    <div class="col-md-6">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input type="text" pattern="^[A-Za-z][A-Za-z0-9_]{2,255}$" class="form-control" #CustomerLastName="ngModel" id="lastName" placeholder="Last Name" name="CustomerLastName" ngModel required>
+      <span *ngIf="CustomerLastName.invalid && CustomerLastName.touched" style="color: red;">* Enter valid name</span>
+    </div>
+    <div class="col-6">
+      <label for="emailId" class="form-label">Email ID</label>
+      <input type="email" class="form-control" pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{3,}" #EmailId="ngModel" id="emailId" placeholder="e.g. abc@gmail.com" name="EmailId" ngModel required>
+      <span *ngIf="EmailId.invalid && EmailId.touched" style="color: red;">* Enter valid email</span>
+    </div>
+    <div class="col-md-6">
+      <label for="noOfPeople" class="form-label">No. of Accomodation</label>
+      <select id="noOfPeople" class="form-select" #NoOfPeople="ngModel" name="NoOfPeople" ngModel required>
+        <option selected>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      <span *ngIf="NoOfPeople.invalid && NoOfPeople.touched" style="color: red;">* Select No of Accomodation</span>
+    </div>
+    <div class="col-6">
+      <label for="phoneNumber" class="form-label">Phone Number </label>
+      <div class="input-group">
+        <div class="input-group-text">+91</div>
+        <input type="text" pattern="[0-9]{10}" class="form-control" #PhoneNumber="ngModel" id="phoneNumber" placeholder="" name="PhoneNumber" ngModel required>
+      </div>
+      <span *ngIf="PhoneNumber.invalid && PhoneNumber.touched" style="color: red;">* Enter phone number</span>
+    </div>
+    <div class="col-6">
+      <label for="alternateNumber" class="form-label">Alternate Phone Number (Optional)</label>
+      <div class="input-group">
+        <div class="input-group-text">+91</div>
+        <input type="text" pattern="[0-9]{10}" #AlternatePhoneNumber="ngModel" class="form-control" id="alternateNumber" placeholder="" name="AlternatePhoneNumber" ngModel>
+      </div>
+      <span *ngIf="AlternatePhoneNumber.invalid && AlternatePhoneNumber.touched" style="color: red;">* Enter phone number</span>
+    </div>
+    <div class="col-6">
+      <label for="fromDate" class="form-label">From Date</label>
+      <input type="date" class="form-control" #FromDate="ngModel" id="fromDate" name="FromDate" ngModel required>
+      <span *ngIf="FromDate.invalid && FromDate.touched" style="color: red;">* Select date</span>
+    </div>
+    <div class="col-6">
+      <label for="toDate" class="form-label">To Date</label>
+      <input type="date" class="form-control" #ToDate="ngModel" id="toDate" name="ToDate" ngModel required>
+      <span *ngIf="ToDate.invalid && ToDate.touched" style="color: red;">* Select date</span>
+    </div>
+    <div class="d-grid gap-2 my-4">
+      <button *ngIf="bookingForm.valid" type="submit" class="btn btn-success btn-lg">Book</button>
+      <button *ngIf="bookingForm.invalid" type="submit" class="btn btn-success btn-lg" disabled>Book</button>
+    </div>
+  </form>
+</div>
