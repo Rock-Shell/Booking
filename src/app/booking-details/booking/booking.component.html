@@ -18,12 +18,30 @@
     <div class="col-md-6">
       <label for="noOfPeople" class="form-label">No. of Accomodation</label>
       <select id="noOfPeople" class="form-select" #NoOfPeople="ngModel" name="NoOfPeople" ngModel required>
-        <option selected>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
       </select>
       <span *ngIf="NoOfPeople.invalid && NoOfPeople.touched" style="color: red;">* Select No of Accomodation</span>
+    </div>
+    <div class="col-md-6">
+      <label for="hotelName" class="form-label">Hotel</label>
+      <select id="hotelName" class="form-select" #HotelName="ngModel" name="HotelName" ngModel required>
+        <option value="Taj Hotel" selected>Taj Hotel</option>
+        <option value="Radisson Blue">Radisson Blue</option>
+        <option value="Le Méridien">Le Méridien</option>
+        <option value="Desi Thatt">Desi Thatt</option>
+      </select>
+      <span *ngIf="HotelName.invalid && HotelName.touched" style="color: red;">* Select Hotel</span>
+    </div>
+    <div class="col-md-6">
+      <label for="roomType" class="form-label">Room Type</label>
+      <select id="roomType" class="form-select" #RoomType="ngModel" name="RoomType" ngModel required>
+        <option value="AC" selected>AC</option>
+        <option value="Non-AC">Non-AC</option>
+      </select>
+      <span *ngIf="RoomType.invalid && RoomType.touched" style="color: red;">* Select No of Accomodation</span>
     </div>
     <div class="col-6">
       <label for="phoneNumber" class="form-label">Phone Number </label>

@@ -7,5 +7,7 @@ export interface BookinDetails{
     EmailId : string,
     PhoneNumber : string,
     AlternatePhoneNumber : string,
-    BookingDate : Date
+    BookingDate : Date,
+    HotelName : string,
+    RoomType : string
 }

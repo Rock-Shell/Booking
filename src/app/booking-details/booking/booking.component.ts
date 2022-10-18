@@ -28,7 +28,9 @@ export class BookingComponent implements OnInit {
       ToDate: formValues.ToDate,
       BookingDate: new Date(),
       PhoneNumber: formValues.PhoneNumber,
-      AlternatePhoneNumber: formValues.AlternatePhoneNumber
+      AlternatePhoneNumber: formValues.AlternatePhoneNumber,
+      HotelName : formValues.HotelName,
+      RoomType : formValues.RoomType
     }
     this.newBooking = bookingDetails as BookinDetails
     console.log(this.newBooking)

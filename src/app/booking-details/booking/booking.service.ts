@@ -8,7 +8,7 @@ import { BookinDetails } from 'src/app/model/BookingDetails';
 })
 export class BookingService{
   constructor(private fb: FormBuilder, private http: HttpClient) {}
-  readonly BaseURI = 'https://localhost:7282/api';
+  readonly BaseURI = 'https://hotelmanagementsystem20221018114919.azurewebsites.net/api/';
 
   bookRoom(bookingDetails : BookinDetails) {
     //console.log(new Date(this.formModel.value.FromDate.toString()));
@@ -22,9 +22,11 @@ export class BookingService{
       ToDate : new Date(bookingDetails.ToDate.toString()),
       BookingDate : new Date(),
       PhoneNumber : bookingDetails.PhoneNumber.toString(),
-      AlternatePhoneNumber : bookingDetails.AlternatePhoneNumber.toString()
+      AlternatePhoneNumber : bookingDetails.AlternatePhoneNumber.toString(),
+      HotelName : bookingDetails.HotelName.toString(),
+      RoomType : bookingDetails.RoomType.toString()
     }
-
+    console.log(newBookingDetails);
     return this.http.post(this.BaseURI + '/BookingDetails', newBookingDetails, options);
   }
 }
